@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>Example - Django</title>
+
+    {# CSS Bootstrap #}
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+<body>
+    {% bootstrap_messages %}
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">Example - Django</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container " style="padding-top: 60px">
+    <h1 class="my-4">Hello World Django</h1>
+    <div class="row">
+        {% if product %}
+
+            <div class="card h-100">
+              <h4 class="card-header">{{ product.name }}</h4>
+              <div class="card-body">
+                  <p class="card-text">{{ product.description }}</p>
+                  <p class="card-text">{{ product.price }}</p>
+                  <p class="card-text">{{ product.category.name }}</p>
+
+              </div>
+              <div class="card-footer">
+                <a href="/" class="btn btn-primary">Return</a>
+              </div>
+            </div>
+
+        {% else %}
+            <p>There is not information about product.</p>
+        {% endif %}
+
+    </div>
+
+
+  </div>
+  <!-- /.container -->
+
+</body>
+</html>
